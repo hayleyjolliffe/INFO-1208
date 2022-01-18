@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* Hayley Jolliffe's first CSS file */
+
+body {
+  font-family:'Arial', sans-serif;
+  font-size:13px;
+  background-color:#fff;
+}
+
+#wrapper {
+  width:1000px;
+  height:900px;
+  margin:0 auto;
+  /* background-image:url("images/background.png"); */
+  background-repeat:no-repeat;
+}
+
+#insider {
+  position:relative;
+  padding-top:5%;
+  padding-left:5%;
+}
+
+.green {
+  color:#4bf442;
+}
+
+.red {
+  color:#ff0000;
+}
+
+.heavy {
+  font-weight:800;
+}
