@@ -32,4 +32,9 @@ h2.headings {
 /* BUTTON STYLES */
 #calc_button {
     width: 125px;
+    height: 40px;
+    background: url("calculate_button.png") no-repeat 0 0;
+}
+#calc_button:hover {
+    background-position: 0 -40px;
 }
