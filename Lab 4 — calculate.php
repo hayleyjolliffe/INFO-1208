@@ -4,12 +4,8 @@
 <head>
 <meta charset="utf-8">
 <title>Product Shipping Calculator</title>
-<style type="text/css">
-    .number {
-        font-weight:bold;
-        color: red;
-    }
-</style>
+<!-- CSS -->
+<link href="calculate.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -43,6 +39,7 @@ $total = number_format($total, 2);
 $monthly = number_format($monthly, 2);
 
 // Print out the results
+echo "<div class='results'>";
 print "<p>You have selected to purchase:<br />
 <span class=\"number\">$quantity widget(s) at $<span class=\"number\">$price</span> each.
 The shipping cost is $<span class=\"number\">$shipping</span>. <br />
@@ -53,8 +50,7 @@ $<span class=\"number\">$total</span>.<br />
 
 Divided over <span class=\"number\">$payments</span> monthly payments, it comes to
 $<span class=\"number\">$monthly</span> each month.</p>";
-
 ?>
-
+<p>Click <a href="calculator_new.php">here</a> to return to the main order page</p>
 </body>
 </html>
