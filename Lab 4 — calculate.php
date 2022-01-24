@@ -26,19 +26,21 @@ $shipping = $_POST['shipping'];
 $payments = $_POST['payments'];
 
 // Calculate the total
-$total = $price * $quantity;
-$total = $total + $shipping;
-$total = $total = $discount;
+$total = (($price * $quantity) + $shipping) - $discount;
 
 // Determine the tax rate
 $taxrate = $tax / 100;
-$taxrate = $taxrate + 1;
+$taxrate++;
 
 // Factor in the tax rate
 $total = $total * $taxrate;
 
 // Calculate the monthly payments
 $monthly = $total / $payments;
+
+// Apply formatting to the monthly payment
+$total = number_format($total, 2);
+$monthly = number_format($monthly, 2);
 
 // Print out the results
 print "<p>You have selected to purchase:<br />
