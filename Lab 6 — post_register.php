@@ -34,18 +34,25 @@ if ($_POST['password'] != $_POST['confirm']) {
     $okay = false;
 }
 // Validate the year of birth
-if (is_numeric($_POST['year'])) {
-    $age = date('Y') - $_POST['year']; // Calculate age by subtracting from the current year
+if (is_numeric($_POST['year']) AND (strlen($_POST['year']) == 4)) {
+    // Check to see if the year of birth is before current year
+    if ($_POST['year'] < date('Y')) {
+        $age = date('Y') - $_POST['year'];
+    } else {
+        print '<p class="error">Your birthdate is in the future!</p>';
+        $okay = false;
+    }
 } else {
-    print '<p class="error"> Please enter a valid year of birth.</p>';
+    print '<p class="error">Please enter a valid 4 digit year</p>';
     $okay = false;
 }
-// Born this year or in the future? No way!
-// Note in date('Y'), it has to be an uppercase Y
-if ($_POST['year'] >= date('Y')) {
-    print '<p class="error">Double check your birth date!</p>';
+// Validate the terms of service
+if (!isset($_POST['terms'])) {
+    print '<p class="error">You must accept the terms of service</p>';
     $okay = false;
 }
+// Validate the colour
+
 // If there are no errors, print a confirmation message
 if ($okay) {
     print "Success! Thank you for registering.";
