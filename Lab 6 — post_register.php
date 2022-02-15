@@ -52,11 +52,23 @@ if (!isset($_POST['terms'])) {
     $okay = false;
 }
 // Validate the colour
-
+if ($_POST['colour'] == 'black') {
+    $colour_type = 'Midnight';
+} elseif ($_POST['colour'] == 'blue') {
+    $colour_type = 'Water';
+} elseif ($_POST['colour'] == 'pink') {
+    $colour_type = 'Roses';
+} elseif ($_POST['colour'] == 'purple') {
+    $colour_type = 'Royalty';
+} else  {// Colour not selected!
+    print '<p class="error"> Please select a colour</p>';
+    $okay = false;
+}
 // If there are no errors, print a confirmation message
 if ($okay) {
     print "Success! Thank you for registering.";
     print "<p>You are $age this year.</p>";
+    print "<p>Your favourite colour is like $colour_type</p>";
 }
 ?>
 </body>
