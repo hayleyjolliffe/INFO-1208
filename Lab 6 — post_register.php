@@ -28,9 +28,17 @@ if (empty($_POST['password'])) {
     print '<p class="error"> Please enter your password.</p>';
     $okay = false;
 }
+// Validate the year of birth
+if (is_numeric($_POST['year'])) {
+    $age = date('Y') - $_POST['year']; // Calculate age by subtracting from the current year
+} else {
+    print '<p class="error"> Please enter a valid year of birth.</p>';
+    $okay = false;
+}
 // If there are no errors, print a confirmation message
 if ($okay) {
     print "Success! Thank you for registering.";
+    print "<p>You are $age this year.</p>";
 }
 ?>
 </body>
