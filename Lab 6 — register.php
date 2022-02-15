@@ -15,7 +15,15 @@
         <p>Email Address: <input type="text" name="email" size="30"></p>
         <p>Password: <input type="password" name="password" size="30"></p>
         <p>Confirm Password: <input type="password" name="confirm" size="30"></p>
-        <p>Year of Birth: <input type="text" name="year" placeholder="YYYY" size="4"></p>
+        <p>Month and Year of Birth:
+            <select name="month">
+            <option value="">Month</option>
+            <?php // Print out 1-12 for months
+            for ($i = 1; $i <=12; $i++) {
+                  print "<option value=\"$i\">$i</option>\n";
+            }
+            ?>
+            <input type="text" name="year" placeholder="YYYY" size="4"></p>
         <p>Favourite Colour: <select name="colour">
             <option value="">Pick one</option>
             <option value="black">Black</option>
