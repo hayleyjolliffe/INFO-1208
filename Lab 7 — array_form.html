@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hayley Jolliffe Array Form</title>
+</head>
+<body>
+<!-- Start the form -->
+<div><p>Use this form to order a pizza:</p>
+
+<form action="array_form.php" method="post">
+
+    <p>Pizza Size: <input type="text" name="pizza_size" size="30"></p>
+    <p>Toppings:
+    <input type="checkbox" name="toppings[]" value="Pepperoni"> Pepperoni
+    <input type="checkbox" name="toppings[]" value="Fish"> Fish
+    <input type="checkbox" name="toppings[]" value="Bacon"> Bacon
+    <input type="checkbox" name="toppings[]" value="Special Sauce"> Special Sauce
+    <input type="checkbox" name="toppings[]" value="Onions"> Onions
+    <input type="checkbox" name="toppings[]" value="Mushrooms"> Mushrooms
+    <input type="checkbox" name="toppings[]" value="Green Olives"> Green Olives
+    </p>
+    <input type="submit" name="submit" value="Place Order">
+
+</form>
+</div>
+</body>
+</html>
