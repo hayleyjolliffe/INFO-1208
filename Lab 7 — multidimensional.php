@@ -22,6 +22,15 @@ $other = [1 => 'Mushrooms', 'Feta', 'Cheddar', 'Pineapple'];
 $toppings = ['MEAT' => $meat, 'VEGGIE' => $veggie, 'OTHER' => $other];
 
 print "<p>The default meat topping is: <b>{$toppings['MEAT'][1]}</b></p>";
+
+foreach ($toppings as $type => $value) {
+	print "<p><b>$type:</b>";
+		foreach ($value as $number => $top) {
+			print "<br />Topping #$number is $top";
+		}
+		print "</p>\n";
+}
+
 ?>
 </body> 
 </html>
