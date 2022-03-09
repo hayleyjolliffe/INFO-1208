@@ -1,0 +1,144 @@
+INFO 1208 Week 9 PHP for Web Apps
+
+Include() Example
+
+include 'vars.php';
+
+print $int1;
+
+print '<br />';
+
+print $int2;
+
+OR
+
+include ('vars.php');
+
+print $int1;
+
+print '<br />';
+
+print $int2;
+
+Via URL – 
+
+include 'http://www.example.com/file.php?foo=1&bar=2';
+
+NOTE: If file does not exist, script will attempt to run
+
+
+
+Require() Example
+
+require 'vars.php';
+
+print $int1;
+
+print '<br />';
+
+print $int2;
+
+OR
+
+require ('vars.php');
+
+print $int1;
+
+print '<br />';
+
+print $int2;
+
+NOTE: If file does not exist, script will throw error
+
+
+
+Constants – using define()
+
+define('NAME_OF_CONSTANT', 'some value for the constant that will never change!');
+
+if(defined('NAME_OF_CONSTANT')) {
+	print NAME_OF_CONSTANT;
+}
+else {
+	print 'constant not defined';
+}
+
+PHP predefined constants – PHP_VERSION, PHP_OS, SID
+
+print PHP_VERSION;
+
+https://php.net/manual/en/info.constants.php
+
+
+Using Date() – different formats
+
+Print individual data from date (this is day of the week)
+
+print date('l');
+
+print with format string 
+
+print date('l jS \of F Y h:i:s A');
+
+MORE INFO - https://www.php.net/manual/en/function.date.php
+
+
+Setting timezone
+
+date_default_timezone_set('America/Toronto');
+
+print date('l jS \of F Y h:i:s A');
+
+date_default_timezone_set('UTC');
+
+print date('l jS \of F Y h:i:s A');
+
+
+Using time() 
+
+print time();
+
+
+Using mktime()
+- Returns unix timestamp for date
+
+$timestamp = mktime(18, 05, 24, 02, 15, 2018);
+
+print date(‘l F d, Y', $timestamp);
+
+
+
+Combine html and php on the same page
+
+Login.php in textbook is a great example of this. Page 214-219
+
+
+Sticky Forms
+When the post is submitted and values are passed in $_POST array, if you add the following into your input and the values previously entered will be printed back into the corresponding fields:
+
+<input type="text" name="email" value="<?php print $_POST['email']; ?>">
+
+To improve on this we should always use the following so that if the field has not been entered we will not run into errors or issues:
+
+<input type="email" 
+            name="email" 
+size="20" 
+value="<?php if (isset($_POST['email'])) { print htmlspecialchars($_POST['email']);}?>"
+>
+
+
+Using  mail()
+
+$result = mail('user@gmail.com', 'subject here', 'body content of the email is put here', 'From: spam@foluserpizza.com');
+
+print $result;
+
+
+Ensuring only one email is entered
+
+if(substr_count($_POST['email'], '@') != 1) {
+	mail('user@gmail.com', 'subject here', 'body content of the email is put here', 'From: spam@foluserpizza.com');
+}
+using header() function
+
+header("Location: http://www.yourphpsite.com/login.php"); 
