@@ -40,6 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 } // End of handle form IF.
 
+// Send the email
+$body = "Thank you, {$_POST['first_name']}, for signing up for SPAM!'.";
+mail($_POST['email'],'Registration Confirmation',$body, 'From: spam@hayleyjolliffepizza.com');
+
 // Create the HTML form:
 ?>
 <form action="register.php" method="post" class="form--inline">
