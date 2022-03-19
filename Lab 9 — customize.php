@@ -3,8 +3,8 @@
 if (isset($_POST['font_size'], $_POST['font_color'])) {
 
     // Send the cookies:
-    setcookie('font_size', $_POST['font_size']);
-    setcookie('font_color', $_POST['font_color']);
+    setcookie('font_size', $_POST['font_size'], time()+3600, '/');
+    setcookie('font_color', $_POST['font_color'], time()+3600, '/');
     // Message to be printed later:
     $msg = '<p>Your settings have been entered! Now see
     them <a href="view_settings.php">in action</a>.</p>';
@@ -19,7 +19,7 @@ if (isset($_POST['font_size'], $_POST['font_color'])) {
 <body>
 <?php // If the cookies were sent, print a message.
 if (isset($msg)) {
-    print $msg:
+    print $msg;
 }
 ?>
 <p>Use this form to set preferences for FOLusername:</p>
