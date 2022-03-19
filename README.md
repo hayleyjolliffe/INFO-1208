@@ -7,4 +7,5 @@
 ##### Lab 06, due 02/19/22 — DONE
 ##### Midterm — DONE
 ##### Lab 07, due 03/02/22 — DONE
-##### Lab 08, due 03/12/22 — IN PROGRESS
+##### Lab 08, due 03/12/22 — DONE
+##### Lab 09, due 03/19/22 — IN PROGRESS
