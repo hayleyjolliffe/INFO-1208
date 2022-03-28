@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <form action="" method="post">
     <p>Quantity: <input type="text" name="quantity" size="3"></p>
     <p>Price: <input type="text" name="price" size="5"></p>
+    <input type="submit" name="submit" value="Calculate!">
 </form>
 </body>
 </html>
