@@ -1,0 +1,46 @@
+Opening a file (to read)
+$my_file = fopen('file.txt', 'r');
+fclose($my_file);
+Opening and writing to file
+$my_file = fopen('file.txt', 'a');
+fwrite($my_file, 'writing some text to text file'); fclose($my_file);
+Write to file using file_put_contents (overwrite or create)
+file_put_contents($my_file, '\nwriting some text to text file');
+Write to file using file_put_contents (append or create)
+file_put_contents('new_file.txt', 'writing some text to text file', FILE_APPEND);
+Check if file is writable and write
+if(is_writable('file.txt')) {
+file_put_contents('file.txt', 'texxxxxxxxxxttttt', FILE_APPEND);
+}
+Write content to new line using PHP_EOL
+file_put_contents('file.txt', 'writing some text to text file'.PHP_EOL, FILE_APPEND);
+Lock and write to file using file_put_contents (append or create)
+file_put_contents('file.txt', 'writing some text to text file', FILE_APPEND | LOCK_EX);
+Read from file using file_get_contents
+$result = file_get_contents('file.txt'); print $result;
+ Read file into array
+$result = file('file.txt'); print_r($result);
+Uploading files to server
+print '<input type="file" name="file_added">';
+Accessing files uploaded to server
+$_FILES['filename.ext'];
+Move file from temp directory over to somewhere permanent on the server
+$result = move_uploaded_file($_FILES['filename.ext'], 'new/path'); // if move was successful it will print TRUE, else FALSE
+print $result;
+Parsing through directory
+$contents = scandir('path/to/scan'); //print all the file names scanned through print_r($contents);
+Print out last modification time of file
+$filename = 'somefile.txt'; if (file_exists($filename)) {
+echo "$filename was last modified: " . date ("F d Y H:i:s.", filemtime($filename)); }
+Read file incrementally
+$handle = fopen("/tmp/inputfile.txt", "r");
+if ($handle) {
+while (($buffer = fgets($handle, 4096)) !== false) {
+echo $buffer; }
+if (!feof($handle)) {
+echo "Error: unexpected fgets() fail\n";
+}
+
+fclose($handle); }
+Read CSV
+$file = fopen("contacts.csv","r"); print_r(fgetcsv($file)); fclose($file);
