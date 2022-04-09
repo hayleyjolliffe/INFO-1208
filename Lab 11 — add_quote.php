@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ( !empty($_POST['quote']) && ($_POST['quote'] != 'Enter your quotation here.') ) {
 
         if (is_writable($file)) { // Confirm that the file is writable
-            file_put_contents($file, $_POST['quote'] . PHP_EOL, FILE_APPEND); // Write the data
+            file_put_contents($file, $_POST['quote'] . PHP_EOL, FILE_APPEND | LOCK_EX); // Write the data
             // Print a message
             print '<p>Your quotation has been stored.</p>';
 
