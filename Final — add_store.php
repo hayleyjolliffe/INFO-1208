@@ -10,30 +10,25 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validate the input
     $problem = FALSE;
-    if (!empty($_POST['name']) && !empty($_POST['review'])) {
+    if (!empty($_POST['name']) {
         $name = trim(strip_tags($_POST['name']));
     } else {
-        print '<p style="color: red;">Could not add the review because:<br>' .
-        $problem = TRUE:
+        print '<p style="color: red;">Could not add the store.';
+        $problem = TRUE;
     }
-    if (!$problem) {
-        // Connect to the store database
-        require("creds.php");
-        // Define the query
-        $query = "INSERT INTO entries (id, name, review, date_entered) VALUES (0, '$name', '$review', NOW())";
-        // Execute the query:
-        if (@mysqli_query($conn, $query)) {
-            print '<p>The review has been added!</p>';
-        } else {
-            print '<p style="color: red;">Could not add the review because:<br>' .
-            mysqli_error($conn) . '.</p><p>The query being run was: ' . $query . '</p>';
-        }
-        mysqli_erorr($conn); // Close the connection to the database
-    } // No problem
-} // End of form submission IF
-// Display the form
+}
+if (!$problem) {
+    require("creds.php");
+    $query = "INSERT INTO stores (id, name, date_entered) VALUES (0, '$name', NOW())";
+    // Query execution
+    if (@mysqli_query($conn, $query)) {
+        print '<p style="color: red;">Could not add store. Error:<br>' .
+        mysqli_error($conn) . '</p><p>The query being run was: ' . $query . '</p>';
+    }
+    mysqli_error($conn);
+}
 ?>
-<form action="add_review.php" method="post">
+<form action="add_store.php" method="post">
     <p>Enter Your Store Name: <input type="text" name="name" size="40" maxsize="100"></p>
 </form>
 </body>
